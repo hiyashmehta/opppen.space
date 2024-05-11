@@ -15,14 +15,13 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { LoginSchema } from "@/schemas/login-schema";
-import Link from "next/link";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { CardWrapper } from "./card-wrapper";
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
     const urlError = searchParams.get("error");
@@ -36,6 +35,7 @@ const LoginForm = () => {
         defaultValues: {
             email: "",
             password: "",
+            name: "",
         },
     });
 
@@ -47,9 +47,9 @@ const LoginForm = () => {
     return (
         <div>
             <CardWrapper
-                headerLabel="Welcome Back!"
-                backButtonLabel="Back to Register"
-                backButtonHref="/register"
+                headerLabel="Create an Account!"
+                backButtonLabel="Already have an account? Login here."
+                backButtonHref="/login"
                 showSocial
             >
                 <Form {...form}>
@@ -58,6 +58,23 @@ const LoginForm = () => {
                         className="space-y-6"
                     >
                         <div className="space-y-4">
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Name</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                disabled={isPending}
+                                                placeholder="John Doe"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                             <FormField
                                 control={form.control}
                                 name="email"
@@ -90,7 +107,7 @@ const LoginForm = () => {
                                                 type="password"
                                             />
                                         </FormControl>
-                                        <Button
+                                        {/* <Button
                                             size="sm"
                                             variant="link"
                                             asChild
@@ -99,20 +116,20 @@ const LoginForm = () => {
                                             <Link href="/reset">
                                                 Forget Password?
                                             </Link>
-                                        </Button>
+                                        </Button> */}
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
                         </div>
-                        <FormError message={error || urlError} />
+                        <FormError message={error} />
                         <FormSuccess message={success} />
                         <Button
                             disabled={isPending}
                             type="submit"
                             className="w-full"
                         >
-                            Login
+                            Register
                         </Button>
                     </form>
                 </Form>
@@ -121,4 +138,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;
