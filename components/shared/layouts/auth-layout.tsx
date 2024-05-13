@@ -11,7 +11,7 @@ export default function AuthLayout({
 
     if (status === "loading") return <div>Loading...</div>;
     if (user && status === "authenticated") {
-        redirect("/");
+        redirect("/app");
     }
     return <div>{children}</div>;
 }
