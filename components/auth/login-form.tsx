@@ -25,7 +25,7 @@ import { CardWrapper } from "./card-wrapper";
 const LoginForm = () => {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
-    const urlError = searchParams.get("error");
+    const urlError = searchParams.get("error") ?? "";
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
