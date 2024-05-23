@@ -7,7 +7,6 @@ export default function Home() {
     const { user } = useCurrentUser();
     return (
         <div>
-            Home
             <div>{user && `Hi ${user.email}!`}</div>
             <Button onClick={() => signOut()}>Sign out</Button>
         </div>
