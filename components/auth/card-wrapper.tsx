@@ -16,6 +16,7 @@ interface CardWrapperProps {
     backButtonLabel: string;
     backButtonHref: string;
     showSocial?: boolean;
+    pageType?: "login" | "register";
 }
 
 export const CardWrapper = ({
@@ -24,6 +25,7 @@ export const CardWrapper = ({
     backButtonLabel,
     backButtonHref,
     showSocial,
+    pageType = "login",
 }: CardWrapperProps) => {
     return (
         <Card className="w-[400px] shadow-md">
@@ -33,7 +35,7 @@ export const CardWrapper = ({
             <CardContent>{children}</CardContent>
             {showSocial && (
                 <CardFooter>
-                    <Social />
+                    <Social pageType={pageType} />
                 </CardFooter>
             )}
             <CardFooter>

@@ -2,7 +2,7 @@ import React from "react";
 
 export async function generateMetadata() {
     return {
-        title: "Home Page",
+        title: "Opppen.space",
         description: "Home Page",
     };
 }
