@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function WebsiteHeader() {
     return (
@@ -19,18 +21,20 @@ export default function WebsiteHeader() {
                     </div>
                     {/* Links */}
                     <div className="flex items-center gap-4">
-                        <a href="/features">Features</a>
-                        <a href="/pricing">Pricing</a>
-                        <a href="/contact">Contact</a>
+                        <Link href="/features">Features</Link>
+                        <Link href="/pricing">Pricing</Link>
+                        <Link href="/contact">Contact</Link>
                     </div>{" "}
+                    {/* Login and Get Started Buttons */}
                     <div className="flex items-center gap-4">
-                        <Button></Button>
-
-                        <a href="/login">Login</a>
-                        <a href="/register">Get Started</a>
+                        <Button variant={"outline"} asChild>
+                            <Link href="/login">Login</Link>
+                        </Button>
+                        <Button asChild>
+                            <Link href="/register">Get Started</Link>
+                        </Button>
                     </div>
                 </div>
-                {/* Login and Get Started Buttons */}
             </div>
         </div>
     );
