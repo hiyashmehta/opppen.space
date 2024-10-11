@@ -1,3 +1,4 @@
+import WebsiteLayout from "@/components/shared/layouts/website-layout";
 import React from "react";
 
 export async function generateMetadata() {
@@ -7,5 +8,5 @@ export async function generateMetadata() {
     };
 }
 export default function Layout({ children }: { children: React.ReactNode }) {
-    return <div>{children}</div>;
+    return <WebsiteLayout>{children}</WebsiteLayout>;
 }
