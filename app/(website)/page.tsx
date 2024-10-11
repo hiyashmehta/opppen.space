@@ -1,10 +1,9 @@
-import ErrorIcon from "@/components/illustrations/ui/error";
+import Hero from "@/components/website/hero";
 
 export default function HomePage() {
     return (
         <div>
-            HomePage
-            <ErrorIcon />
+            <Hero />
         </div>
     );
 }
