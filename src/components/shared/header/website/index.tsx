@@ -10,14 +10,14 @@ export default function WebsiteHeader() {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <div>
-                        <a href="/">
+                        <Link href="/">
                             <Image
                                 src="/next.svg"
                                 alt="Logo"
                                 width={200}
                                 height={50}
                             />
-                        </a>
+                        </Link>
                     </div>
                     {/* Links */}
                     <div className="flex items-center gap-4">

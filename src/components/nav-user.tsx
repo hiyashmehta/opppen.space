@@ -31,8 +31,8 @@ import { Skeleton } from "./ui/skeleton";
 export function NavUser() {
     const { isMobile } = useSidebar();
     const { user, status } = useCurrentUser();
-    const handleLogout = () => {
-        signOut();
+    const handleLogout = async () => {
+        await signOut();
     };
 
     if (status === "loading" || !user) {

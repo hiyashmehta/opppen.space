@@ -6,8 +6,8 @@ import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
-let title = "Express yourself to the world | opppen.space";
-let description =
+const title = "Express yourself to the world | opppen.space";
+const description =
     "Express your knowledge, goals, and ideas. Share your thoughts with the world.An open-source platform for building your online community.  ";
 export const metadata: Metadata = {
     title: title,

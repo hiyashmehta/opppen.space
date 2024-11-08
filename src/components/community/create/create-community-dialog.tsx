@@ -4,7 +4,7 @@ import { useCreateCommunityDialog } from "@/lib/hooks/community/use-create-commu
 import CreateCommunityForm from "./create-community-form";
 
 export default function CreateCommunityDialog() {
-    const { isOpen, setIsOpen, open, close } = useCreateCommunityDialog();
+    const { isOpen, setIsOpen } = useCreateCommunityDialog();
 
     return (
         <ResponsiveModal open={isOpen} onOpenChange={setIsOpen}>

@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { type z } from "zod";
 
 import {
     Form,
@@ -42,6 +42,7 @@ const LoginForm = () => {
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
         setError("");
         setSuccess("");
+        console.log(values, callbackUrl, startTransition);
     };
 
     return (

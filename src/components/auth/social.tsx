@@ -19,6 +19,7 @@ export const Social = ({ pageType }: { pageType: "login" | "register" }) => {
 
         //     // registerWithSocial(provider, callbackUrl);
         // }
+        console.log(callbackUrl, pageType);
         await signIn(provider);
     };
 

@@ -32,8 +32,8 @@ export function CommunitySwitcher() {
     const activeCommunity = data?.find((c) => c.id === communitySlug);
 
     const { setIsOpen } = useCreateCommunityDialog();
-    const handleOpen = () => {
-        setIsOpen(true);
+    const handleOpen = async () => {
+        await setIsOpen(true);
     };
 
     if (isLoading && !data) {
@@ -53,7 +53,7 @@ export function CommunitySwitcher() {
                                 size="lg"
                                 className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                             >
-                                <div className="flex aspect-square size-8 items-center justify-center rounded-lg ">
+                                <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
                                     <Avatar>
                                         <AvatarFallback>
                                             {activeCommunity?.name[0]}
@@ -80,7 +80,7 @@ export function CommunitySwitcher() {
                             <DropdownMenuLabel className="text-xs text-muted-foreground">
                                 Communities
                             </DropdownMenuLabel>
-                            {data.map((community, index) => (
+                            {data.map((community) => (
                                 <DropdownMenuItem
                                     key={community.id}
                                     onClick={() =>

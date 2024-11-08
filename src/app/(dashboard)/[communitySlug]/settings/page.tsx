@@ -1,8 +1,11 @@
-export default function CommunitySettings({
+export default async function CommunitySettings({
     params,
 }: {
-    params: { communitySlug: string };
+    params: Promise<{
+        communitySlug: string;
+    }>;
 }) {
-    const slug = params.communitySlug;
+    const slug = (await params).communitySlug;
+
     return <div>CommunitySettings {slug}</div>;
 }
