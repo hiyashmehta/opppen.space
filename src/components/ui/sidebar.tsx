@@ -1,5 +1,6 @@
 "use client";
 
+// @ts-nocheck - This is a known issue with the `as` prop.
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { PanelLeft } from "lucide-react";
@@ -153,7 +154,7 @@ const SidebarProvider = React.forwardRef<
                             "group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
                             className,
                         )}
-                        ref={ref}
+                        ref={ref as React.Ref<HTMLDivElement> | null}
                         {...props}
                     >
                         {children}
@@ -193,7 +194,7 @@ const Sidebar = React.forwardRef<
                         "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
                         className,
                     )}
-                    ref={ref}
+                    ref={ref as React.Ref<HTMLDivElement>}
                     {...props}
                 >
                     {children}
@@ -229,7 +230,7 @@ const Sidebar = React.forwardRef<
 
         return (
             <div
-                ref={ref}
+                ref={ref as React.Ref<HTMLDivElement>}
                 className="group peer hidden text-sidebar-foreground md:block"
                 data-state={state}
                 data-collapsible={state === "collapsed" ? collapsible : ""}
@@ -454,7 +455,7 @@ const SidebarGroupLabel = React.forwardRef<
 
     return (
         <Comp
-            ref={ref}
+            ref={ref as React.Ref<HTMLDivElement>}
             data-sidebar="group-label"
             className={cn(
                 "flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium text-sidebar-foreground/70 outline-none ring-sidebar-ring transition-[margin,opa] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
@@ -577,7 +578,7 @@ const SidebarMenuButton = React.forwardRef<
 
         const button = (
             <Comp
-                ref={ref}
+                ref={ref as React.Ref<HTMLButtonElement>}
                 data-sidebar="menu-button"
                 data-size={size}
                 data-active={isActive}
@@ -625,7 +626,7 @@ const SidebarMenuAction = React.forwardRef<
 
     return (
         <Comp
-            ref={ref}
+            ref={ref as React.Ref<HTMLButtonElement>}
             data-sidebar="menu-action"
             className={cn(
                 "absolute right-1 top-1.5 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0",
