@@ -10,7 +10,7 @@ export const Social = ({ pageType }: { pageType: "login" | "register" }) => {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
 
-    const handleSocialLogin = (provider: "google" | "github") => {
+    const handleSocialLogin = async (provider: "google" | "github") => {
         // if (pageType === "login") {
         //     // loginWithSocial(provider, callbackUrl);
         //     signIn(provider);
@@ -19,7 +19,7 @@ export const Social = ({ pageType }: { pageType: "login" | "register" }) => {
 
         //     // registerWithSocial(provider, callbackUrl);
         // }
-        signIn(provider);
+        await signIn(provider);
     };
 
     return (

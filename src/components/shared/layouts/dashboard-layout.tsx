@@ -4,7 +4,6 @@ import useCurrentUser from "@/lib/hooks/use-current-user";
 import { Spinner } from "@nextui-org/spinner";
 import { redirect } from "next/navigation";
 import React from "react";
-import DashboardHeader from "../header/dashboard";
 
 export default function DashboardLayout({
     children,
@@ -24,7 +23,7 @@ export default function DashboardLayout({
     }
     return (
         <div>
-            <DashboardHeader />
+            {/* <DashboardHeader /> */}
             {children}
         </div>
     );

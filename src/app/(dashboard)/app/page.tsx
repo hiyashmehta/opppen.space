@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 
 export default function Home() {
     const { user } = useCurrentUser();
-    const { data } = api.workspace.hello.useQuery({
+    const { data } = api.community.hello.useQuery({
         text: "Hello, world!",
     });
     return (

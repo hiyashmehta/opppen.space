@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getServerSession, type NextAuthOptions } from "next-auth";
-import { Adapter } from "next-auth/adapters";
+import { type Adapter } from "next-auth/adapters";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -12,28 +12,10 @@ export const authOptions: NextAuthOptions = {
         GitHubProvider({
             clientId: process.env.GITHUB_CLIENT_ID!,
             clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-            profile(profile) {
-                return {
-                    id: profile.id.toString(),
-                    name: profile.name || profile.login,
-                    gh_username: profile.login,
-                    email: profile.email,
-                    image: profile.avatar_url,
-                };
-            },
         }),
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-            // profile(profile) {
-            // 	return {
-            // 		id: profile.id.toString(),
-            // 		name: profile.name || profile.login,
-            // 		gh_username: profile.login,
-            // 		email: profile.email,
-            // 		image: profile.avatar_url,
-            // 	};
-            // },
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
     ],
     pages: {
@@ -65,27 +47,14 @@ export const authOptions: NextAuthOptions = {
             }
             return token;
         },
-        session: async ({ session, token }) => {
-            session.user = {
+        session: ({ session, user }) => ({
+            ...session,
+            user: {
                 ...session.user,
-                // @ts-expect-error
-                id: token.sub,
-                // @ts-expect-error
-                username: token?.user?.username || token?.user?.gh_username,
-            };
-            return session;
-        },
+                id: user.id,
+            },
+        }),
     },
 };
 
-export function getSession() {
-    return getServerSession(authOptions) as Promise<{
-        user: {
-            id: string;
-            name: string;
-            username: string;
-            email: string;
-            image: string;
-        };
-    } | null>;
-}
+export const getServerAuthSession = () => getServerSession(authOptions);
