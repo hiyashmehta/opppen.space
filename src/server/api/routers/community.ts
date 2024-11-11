@@ -67,7 +67,7 @@ export const communityRouter = createTRPCRouter({
                     userId: user.id,
                 },
             });
-            return community;
+            return community ?? {};
         }),
 
     getAllCommunities: protectedProcedure.query(({ ctx }) => {
@@ -81,7 +81,7 @@ export const communityRouter = createTRPCRouter({
                 userId: user.id,
             },
         });
-        return communities;
+        return communities ?? [];
     }),
     getPublicCommunity: publicProcedure
         .input(z.object({ communityId: z.string() }))
@@ -92,6 +92,6 @@ export const communityRouter = createTRPCRouter({
                     id: communityId,
                 },
             });
-            return community;
+            return community ?? {};
         }),
 });

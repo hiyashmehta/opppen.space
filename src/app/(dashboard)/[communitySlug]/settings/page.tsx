@@ -1,3 +1,5 @@
+import CreateCommunityForm from "@/components/community/create/create-community-form";
+
 export default async function CommunitySettings({
     params,
 }: {
@@ -7,5 +9,9 @@ export default async function CommunitySettings({
 }) {
     const slug = (await params).communitySlug;
 
-    return <div>CommunitySettings {slug}</div>;
+    return (
+        <div>
+            <CreateCommunityForm />
+        </div>
+    );
 }

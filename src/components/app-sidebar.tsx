@@ -1,18 +1,9 @@
 "use client";
 
-import {
-    AudioWaveform,
-    Command,
-    Frame,
-    GalleryVerticalEnd,
-    Map,
-    PieChart,
-    Settings2,
-} from "lucide-react";
+import { GalleryVerticalEnd, Settings2 } from "lucide-react";
 import * as React from "react";
 
 import { CommunitySwitcher } from "@/components/community-switcher";
-import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import {
     Sidebar,
@@ -21,136 +12,49 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar";
-
+import { BiBarChartAlt2, BiSolidBarChartAlt2 } from "react-icons/bi";
+import { PiChatCircleDotsFill, PiChatCircleDotsLight } from "react-icons/pi";
+import { NavProjects } from "./nav-projects";
 // This is sample data.
-const data = {
-    user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+const projects = [
+    {
+        name: "Home",
+        url: "",
+        icon: GalleryVerticalEnd,
+        activeIcon: GalleryVerticalEnd,
     },
-    teams: [
-        {
-            name: "Acme Inc",
-            logo: GalleryVerticalEnd,
-            plan: "Enterprise",
-        },
-        {
-            name: "Acme Corp.",
-            logo: AudioWaveform,
-            plan: "Startup",
-        },
-        {
-            name: "Evil Corp.",
-            logo: Command,
-            plan: "Free",
-        },
-    ],
-    navMain: [
-        // {
-        //     title: "Playground",
-        //     url: "#",
-        //     icon: SquareTerminal,
-        //     isActive: true,
-        //     items: [
-        //         {
-        //             title: "History",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Starred",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Settings",
-        //             url: "#",
-        //         },
-        //     ],
-        // },
-        // {
-        //     title: "Models",
-        //     url: "#",
-        //     icon: Bot,
-        //     items: [
-        //         {
-        //             title: "Genesis",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Explorer",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Quantum",
-        //             url: "#",
-        //         },
-        //     ],
-        // },
-        // {
-        //     title: "Documentation",
-        //     url: "#",
-        //     icon: BookOpen,
-        //     items: [
-        //         {
-        //             title: "Introduction",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Get Started",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Tutorials",
-        //             url: "#",
-        //         },
-        //         {
-        //             title: "Changelog",
-        //             url: "#",
-        //         },
-        //     ],
-        // },
-        {
-            title: "Settings",
-            url: "#",
-            icon: Settings2,
-            items: [
-                {
-                    title: "General",
-                    url: "/",
-                },
-                {
-                    title: "Team",
-                    url: "/team",
-                },
-                {
-                    title: "Billing",
-                    url: "/billing",
-                },
-                {
-                    title: "Limits",
-                    url: "/limits",
-                },
-            ],
-        },
-    ],
-    projects: [
-        {
-            name: "Design Engineering",
-            url: "#",
-            icon: Frame,
-        },
-        {
-            name: "Sales & Marketing",
-            url: "#",
-            icon: PieChart,
-        },
-        {
-            name: "Travel",
-            url: "#",
-            icon: Map,
-        },
-    ],
-};
+    {
+        name: "Posts",
+        url: "/posts",
+        icon: GalleryVerticalEnd,
+        activeIcon: GalleryVerticalEnd,
+    },
+    {
+        name: "Members",
+        url: "/members",
+        icon: GalleryVerticalEnd,
+        activeIcon: GalleryVerticalEnd,
+    },
+
+    {
+        name: "Chat",
+        url: "/chat",
+        icon: PiChatCircleDotsLight,
+        activeIcon: PiChatCircleDotsFill,
+    },
+    {
+        name: "Analytics",
+        url: "/analytics",
+        icon: BiBarChartAlt2,
+        activeIcon: BiSolidBarChartAlt2,
+    },
+    {
+        name: "Settings",
+        url: "/settings",
+        icon: Settings2,
+        activeIcon: Settings2,
+    },
+];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
@@ -159,8 +63,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <CommunitySwitcher />
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
-                {/* <NavProjects projects={data.projects} /> */}
+                <NavProjects projects={projects} />
             </SidebarContent>
             <SidebarFooter>
                 <NavUser />

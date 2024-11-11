@@ -1,3 +1,5 @@
+import CreatePostView from "@/features/posts/components/create-post-view";
+
 export default async function CommunityPage({
     params,
 }: {
@@ -7,5 +9,11 @@ export default async function CommunityPage({
 }) {
     const slug = (await params).communitySlug;
 
-    return <div>CommunityPage: {slug}</div>;
+    return (
+        <div>
+            CommunityPage: {slug}
+            {/* <RenderPost /> */}
+            <CreatePostView />
+        </div>
+    );
 }

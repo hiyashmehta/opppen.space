@@ -134,9 +134,9 @@ model Members {
 model Post {
     id           String         @id @default(uuid())
     title        String
-    content      String
-    htmlContent  String
-    jsonContent  String
+    content      String?
+    htmlContent  String?        @db.LongText
+    jsonContent  Json?
     image        String
     createdAt    DateTime       @default(now())
     updatedAt    DateTime       @updatedAt
@@ -149,7 +149,7 @@ model Post {
     userId       String
     status       Post_Status    @default(DRAFT)
     slug         String?        @unique
-    Notification Notification[]
+    notification Notification[]
 }
 
 model Meta_Data {

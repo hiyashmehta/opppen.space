@@ -3,6 +3,7 @@ import useCurrentUser from "@/lib/hooks/use-current-user";
 import { api } from "@/trpc/react";
 import { Spinner } from "@nextui-org/spinner";
 import { redirect } from "next/navigation";
+
 export default function AuthLayout({
     children,
 }: {
