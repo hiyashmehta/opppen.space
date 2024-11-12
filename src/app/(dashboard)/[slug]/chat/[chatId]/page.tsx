@@ -2,16 +2,16 @@ export default async function CommunityChatDetailsPage({
     params,
 }: {
     params: Promise<{
-        communitySlug: string;
+        slug: string;
         chatId: string;
     }>;
 }) {
-    const { communitySlug, chatId } = await params;
-    console.log(communitySlug, chatId);
+    const { slug, chatId } = await params;
+    console.log(slug, chatId);
     return (
         <div>
             CommunityChatDetailsPage:
-            {communitySlug} - {chatId}
+            {slug} - {chatId}
         </div>
     );
 }

@@ -25,7 +25,7 @@ export function NavProjects({
 }) {
     // const { isMobile } = useSidebar();
     const params = useParams();
-    const slug = params.communitySlug as string;
+    const slug = params.slug as string;
     const pathname = usePathname();
 
     // console.log({ pathname });

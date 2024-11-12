@@ -9,10 +9,10 @@ export default async function CommunitySettingsLayout({
     children: React.ReactNode;
 
     params: Promise<{
-        communitySlug: string;
+        slug: string;
     }>;
 }) {
-    const slug = (await params).communitySlug;
+    const slug = (await params).slug;
 
     return (
         <div>

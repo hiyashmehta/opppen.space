@@ -6,7 +6,7 @@ import PostHeader from "./header";
 
 export default function PostDetails() {
     const params = useParams();
-    const slug = params.communitySlug as string;
+    const slug = params.slug as string;
     const id = params.id as string;
     const { data, isLoading } = api.posts.getPostDetails.useQuery(
         {

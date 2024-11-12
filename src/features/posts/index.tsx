@@ -7,10 +7,10 @@ export default function PostsList() {
     const params = useParams();
     const { data, isLoading } = api.posts.getPosts.useQuery(
         {
-            communityId: params.communitySlug as string,
+            communityId: params.slug as string,
         },
         {
-            enabled: !!params.communitySlug,
+            enabled: !!params.slug,
         },
     );
     if (!data && isLoading) {
