@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { TRPCReactProvider } from "@/trpc/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -32,8 +33,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={inter.className}>
+        <html lang="en" suppressHydrationWarning>
+            <body className={cn(inter.className)}>
                 <TRPCReactProvider>
                     {" "}
                     <Providers>{children}</Providers>

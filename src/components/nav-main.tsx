@@ -35,7 +35,7 @@ export function NavMain({
     }[];
 }) {
     const params = useParams();
-    const communitySlug = params.communitySlug as string;
+    const slug = params.slug as string;
     return (
         <SidebarGroup>
             <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -61,7 +61,7 @@ export function NavMain({
                                         <SidebarMenuSubItem key={subItem.title}>
                                             <SidebarMenuSubButton asChild>
                                                 <Link
-                                                    href={`/${communitySlug}/settings${subItem.url}`}
+                                                    href={`/${slug}/settings${subItem.url}`}
                                                 >
                                                     <span>{subItem.title}</span>
                                                 </Link>

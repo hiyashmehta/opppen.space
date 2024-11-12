@@ -1,29 +1,17 @@
 "use client";
 
-import {
-    Folder,
-    Forward,
-    MoreHorizontal,
-    Trash2,
-    type LucideIcon,
-} from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
     SidebarGroup,
     SidebarGroupLabel,
     SidebarMenu,
-    SidebarMenuAction,
     SidebarMenuButton,
     SidebarMenuItem,
-    useSidebar,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
+import { type IconType } from "react-icons/lib";
 
 export function NavProjects({
     projects,
@@ -31,24 +19,36 @@ export function NavProjects({
     projects: {
         name: string;
         url: string;
-        icon: LucideIcon;
+        icon: IconType | LucideIcon;
+        activeIcon: IconType | LucideIcon;
     }[];
 }) {
-    const { isMobile } = useSidebar();
+    // const { isMobile } = useSidebar();
+    const params = useParams();
+    const slug = params.slug as string;
+    const pathname = usePathname();
+
+    // console.log({ pathname });
 
     return (
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
+            <SidebarGroupLabel>Platform</SidebarGroupLabel>
             <SidebarMenu>
                 {projects.map((item) => (
                     <SidebarMenuItem key={item.name}>
-                        <SidebarMenuButton asChild>
-                            <a href={item.url}>
+                        <SidebarMenuButton
+                            asChild
+                            isActive={
+                                pathname === `/${slug}${item.url}`
+                                // pathname.includes(`/${slug}${item.url}`)
+                            }
+                        >
+                            <Link href={`/${slug}${item.url}`}>
                                 <item.icon />
                                 <span>{item.name}</span>
-                            </a>
+                            </Link>
                         </SidebarMenuButton>
-                        <DropdownMenu>
+                        {/* <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <SidebarMenuAction showOnHover>
                                     <MoreHorizontal />
@@ -74,15 +74,15 @@ export function NavProjects({
                                     <span>Delete Project</span>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
                     </SidebarMenuItem>
                 ))}
-                <SidebarMenuItem>
+                {/* <SidebarMenuItem>
                     <SidebarMenuButton className="text-sidebar-foreground/70">
                         <MoreHorizontal className="text-sidebar-foreground/70" />
                         <span>More</span>
                     </SidebarMenuButton>
-                </SidebarMenuItem>
+                </SidebarMenuItem> */}
             </SidebarMenu>
         </SidebarGroup>
     );
