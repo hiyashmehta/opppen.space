@@ -2,10 +2,10 @@ export default async function CommunityPage({
     params,
 }: {
     params: Promise<{
-        communitySlug: string;
+        slug: string;
     }>;
 }) {
-    const slug = (await params).communitySlug;
+    const slug = (await params).slug;
 
     return <div>CommunityPage: {slug}</div>;
 }

@@ -28,8 +28,8 @@ export function CommunitySwitcher() {
     const router = useRouter();
 
     const params = useParams();
-    const communitySlug = params.communitySlug as string;
-    const activeCommunity = data?.find((c) => c.id === communitySlug);
+    const slug = params.slug as string;
+    const activeCommunity = data?.find((c) => c.id === slug);
 
     const { setIsOpen } = useCreateCommunityDialog();
     const handleOpen = async () => {

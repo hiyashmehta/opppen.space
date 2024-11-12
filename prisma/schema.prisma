@@ -134,9 +134,9 @@ model Members {
 model Post {
     id           String         @id @default(uuid())
     title        String
-    content      String
-    htmlContent  String
-    jsonContent  String
+    content      String?
+    htmlContent  String?        @db.LongText
+    jsonContent  Json?
     image        String
     createdAt    DateTime       @default(now())
     updatedAt    DateTime       @updatedAt
@@ -149,7 +149,29 @@ model Post {
     userId       String
     status       Post_Status    @default(DRAFT)
     slug         String?        @unique
-    Notification Notification[]
+    notification Notification[]
+    tags         Tags[]
+    category     Category[]
+
+    @@unique([slug, communityId])
+}
+
+model Tags {
+    id     String  @id @default(uuid())
+    name   String
+    post   Post?   @relation(fields: [postId], references: [id])
+    postId String?
+
+    @@unique([name])
+}
+
+model Category {
+    id     String  @id @default(uuid())
+    name   String
+    post   Post?   @relation(fields: [postId], references: [id])
+    postId String?
+
+    @@unique([name])
 }
 
 model Meta_Data {
@@ -304,4 +326,12 @@ enum COMMUNITY_PRIVACY {
 enum MEMBER_ROLE {
     ADMIN
     MEMBER
+}
+
+enum TEAM_MEMBER_ROLE {
+    ADMIN
+    MEMBER
+    VIEWER
+    EDITOR
+    OWNER
 }
