@@ -42,6 +42,8 @@ export function NavProjects({
                                 pathname === `/${slug}${item.url}`
                                 // pathname.includes(`/${slug}${item.url}`)
                             }
+                            size="lg"
+                            className="py-4"
                         >
                             <Link href={`/${slug}${item.url}`}>
                                 <item.icon />
