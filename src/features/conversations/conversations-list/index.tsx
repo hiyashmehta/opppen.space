@@ -30,7 +30,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 2,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -39,7 +39,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 3,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -48,7 +48,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 4,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -57,7 +57,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 5,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -66,7 +66,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 6,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -75,7 +75,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 7,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -84,7 +84,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 8,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
@@ -93,7 +93,7 @@ const chats: Chat[] = [
         timestamp: "10:00 AM",
     },
     {
-        id: 1,
+        id: 9,
         message: "Hi I'm facing an issue with my order",
         userId: 1,
         userName: "John Doe",
