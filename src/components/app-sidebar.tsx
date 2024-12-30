@@ -30,6 +30,12 @@ const projects = [
         activeIcon: GalleryVerticalEnd,
     },
     {
+        name: "Courses",
+        url: "/courses",
+        icon: GalleryVerticalEnd,
+        activeIcon: GalleryVerticalEnd,
+    },
+    {
         name: "Members",
         url: "/members",
         icon: GalleryVerticalEnd,
