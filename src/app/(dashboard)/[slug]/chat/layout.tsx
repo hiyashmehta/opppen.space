@@ -5,5 +5,12 @@ export default function ChatLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <div>{children}</div>;
+    return (
+        <div className="grid lg:grid-cols-3">
+            {/* <div className="col-span-1">
+                <ConversationsList />
+            </div> */}
+            <div className="col-span-3">{children}</div>
+        </div>
+    );
 }

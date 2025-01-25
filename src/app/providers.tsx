@@ -13,9 +13,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
             <NextUIProvider>
                 <SessionProvider>
                     <Toaster className="dark:hidden" />
-                    <Toaster theme="dark" className="hidden dark:block" />{" "}
+                    <Toaster theme="dark" className="hidden dark:block" />
                     <QueryClientProvider client={queryClient}>
-                        {children} {/* The rest of your application */}
+                        {children}
+                        {/* The rest of your application */}
                         <ReactQueryDevtools initialIsOpen={false} />
                     </QueryClientProvider>
                 </SessionProvider>
