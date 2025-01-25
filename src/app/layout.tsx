@@ -36,7 +36,6 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={cn(inter.className)}>
                 <TRPCReactProvider>
-                    {" "}
                     <Providers>{children}</Providers>
                 </TRPCReactProvider>
             </body>
