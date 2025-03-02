@@ -13,7 +13,6 @@ import {
     SidebarRail,
 } from "@/components/ui/sidebar";
 import { BiBarChartAlt2, BiSolidBarChartAlt2 } from "react-icons/bi";
-import { PiChatCircleDotsFill, PiChatCircleDotsLight } from "react-icons/pi";
 import { NavProjects } from "./nav-projects";
 // This is sample data.
 const projects = [
@@ -42,12 +41,12 @@ const projects = [
         activeIcon: GalleryVerticalEnd,
     },
 
-    {
-        name: "Chat",
-        url: "/chat",
-        icon: PiChatCircleDotsLight,
-        activeIcon: PiChatCircleDotsFill,
-    },
+    // {
+    //     name: "Chat",
+    //     url: "/chat",
+    //     icon: PiChatCircleDotsLight,
+    //     activeIcon: PiChatCircleDotsFill,
+    // },
     {
         name: "Analytics",
         url: "/analytics",
